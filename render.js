@@ -90,24 +90,25 @@ function Render() {
 		Render.prototype.onLoad = function () {
     		var position = this.getCurrentURL().indexOf("&travelType=");
     		if ( position > -1) {
-        		this.travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
-        		this.loadingCheck();
+        		var travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
+				alert(travelType);
+        		this.loadingCheck(travelType);
     		}
 		}
 		
-		Render.prototype.loadingCheck = function () {
-    		window.setTimeout(this.populateMailContent, 2500);
+		Render.prototype.loadingCheck = function (travelType) {
+    		window.setTimeout(this.populateMailContent, 2500, travelType);
 		}
 		
-		Render.prototype.populateMailContent = function () {
+		Render.prototype.populateMailContent = function (travelType) {
 			alert("populateMailContent1");
-			var template = new Template(this.travelType);
-    		alert("populateMailContent2");
+			var template = new Template(travelType);
+    		alert("populateMailContent2" + travelType);
 		}
 		
 		Render.initialized = true;
 	}
-
+	
 }
 
 
