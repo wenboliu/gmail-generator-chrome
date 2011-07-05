@@ -91,10 +91,14 @@ function Render() {
     		var position = this.getCurrentURL().indexOf("&travelType=");
     		if ( position > -1) {
         		this.travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
-				alert("composeTravelMail");
-        		//gmailgenerator.loadingCheck();
+        		this.loadingCheck();
     		}
 		}
+		
+		Render.prototype.loadingCheck = function () {
+    		window.setTimeout(function(){  alert("composeTravelMail"); }, 2500);
+		}
+		
 		Render.initialized = true;
 	}
 
