@@ -1,0 +1,13 @@
+{
+  "name": "Travel Request",
+  "description": "Shows some of the features of the Context Menus API",
+  "version": "0.1",
+  "permissions": ["https://mail.google.com/a/thoughtworks.com/*","contextMenus"],
+  "background_page": "background.html",
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/a/thoughtworks.com/*"],
+      "js": ["test.js","template.js"]
+    }
+  ]
+}
