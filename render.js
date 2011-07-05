@@ -100,7 +100,9 @@ function Render() {
 		}
 		
 		Render.prototype.populateMailContent = function () {
-    		alert("populateMailContent");
+			alert("populateMailContent1");
+			var template = new Template(this.travelType);
+    		alert("populateMailContent2");
 		}
 		
 		Render.initialized = true;
