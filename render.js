@@ -96,7 +96,11 @@ function Render() {
 		}
 		
 		Render.prototype.loadingCheck = function () {
-    		window.setTimeout(function(){  alert("composeTravelMail"); }, 2500);
+    		window.setTimeout(this.populateMailContent, 2500);
+		}
+		
+		Render.prototype.populateMailContent = function () {
+    		alert("populateMailContent");
 		}
 		
 		Render.initialized = true;
