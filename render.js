@@ -91,7 +91,6 @@ function Render() {
     		var position = this.getCurrentURL().indexOf("&travelType=");
     		if ( position > -1) {
         		var travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
-				alert(travelType);
         		this.loadingCheck(travelType);
     		}
 		}
@@ -101,7 +100,6 @@ function Render() {
 		}
 		
 		Render.prototype.populateMailContent = function (travelType) {
-			alert("populateMailContent1");
 			var template = new Template(travelType);
 			var canvasFrame = document.getElementById("canvas_frame");
 			if (canvasFrame) {
@@ -109,11 +107,24 @@ function Render() {
 		        if (canvasDoc) {
 					var toElem = canvasDoc.getElementById(":qo");
 		            if (toElem) {
-			        	alert("toEle exist!");
+			        	canvasDoc.getElementById(":rl").childNodes[1].style.display = "";
+		                toElem.value = template.getEmailTo();
+		                canvasDoc.getElementById(":qn").value = template.getEmailCc();
+		                canvasDoc.getElementById(":ql").value = template.getSubject();
+		                try{
+		                	canvasDoc.getElementById(":qa").contentDocument.getElementById(":qa").innerHTML = "<br>" + template.getHTMLContent();
+		                }catch(e) {
+		                    try {
+		                        canvasDoc.getElementById(":pp").value = template.getContent();
+		                    }catch(e) {
+		                        this.loadingCheck(travelType);  
+		                    }
+		                }
+		                return;
 			        }
 				}
 			}
-    		alert("populateMailContent2" + travelType);
+			this.loadingCheck(travelType);  
 		}
 		
 		Render.initialized = true;
