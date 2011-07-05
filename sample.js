@@ -11,6 +11,6 @@ function domesticOnClick(info, tab) {
 }
 
 var id = chrome.contextMenus.create({"title": "International", "contexts":["page"],
-                                       "onclick": internationalOnClick});
+                                       "onclick": internationalOnClick, "documentUrlPatterns":["https://mail.google.com/a/thoughtworks.com/*"]});
 var id = chrome.contextMenus.create({"title": "Domestic", "contexts":["page"],
-									   "onclick": domesticOnClick});
+									   "onclick": domesticOnClick, "documentUrlPatterns":["https://mail.google.com/a/thoughtworks.com/*"]});
