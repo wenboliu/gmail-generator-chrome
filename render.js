@@ -103,6 +103,16 @@ function Render() {
 		Render.prototype.populateMailContent = function (travelType) {
 			alert("populateMailContent1");
 			var template = new Template(travelType);
+			var canvasFrame = document.getElementById("canvas_frame");
+			if (canvasFrame) {
+				var canvasDoc = canvasFrame.contentDocument;
+		        if (canvasDoc) {
+					var toElem = canvasDoc.getElementById(":qo");
+		            if (toElem) {
+			        	alert("toEle exist!");
+			        }
+				}
+			}
     		alert("populateMailContent2" + travelType);
 		}
 		
