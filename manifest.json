@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/a/thoughtworks.com/*"],
-      "js": ["test.js","template.js"]
+      "js": ["render.js","template.js"]
     }
   ]
 }

@@ -87,13 +87,9 @@ function Render() {
 	}
 
 	Render.prototype.onLoad = function () {
-		var currentUrl = window.location;
-		for(var i in currentUrl) {
-			alert(i + "----------------" + currentUrl[i]);
-		}
-    	var position = window.location.indexOf("&travelType=");
+    	var position = this.getCurrentURL().indexOf("&travelType=");
     	if ( position > -1) {
-        	this.travelType = window.location.replace(/\S*&travelType=/,"");
+        	this.travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
 			alert("composeTravelMail");
         	//gmailgenerator.loadingCheck();
     	}
