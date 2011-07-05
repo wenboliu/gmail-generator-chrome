@@ -82,17 +82,20 @@ var render = new Render();
 
 function Render() {
 
-	Render.prototype.getCurrentURL = function() {
-		return window.location.href;
-	}
+	if(typeof Render.initialized == "undefined"){
+		Render.prototype.getCurrentURL = function() {
+			return window.location.href;
+		}
 
-	Render.prototype.onLoad = function () {
-    	var position = this.getCurrentURL().indexOf("&travelType=");
-    	if ( position > -1) {
-        	this.travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
-			alert("composeTravelMail");
-        	//gmailgenerator.loadingCheck();
-    	}
+		Render.prototype.onLoad = function () {
+    		var position = this.getCurrentURL().indexOf("&travelType=");
+    		if ( position > -1) {
+        		this.travelType = this.getCurrentURL().replace(/\S*&travelType=/,"");
+				alert("composeTravelMail");
+        		//gmailgenerator.loadingCheck();
+    		}
+		}
+		Render.initialized = true;
 	}
 
 }
