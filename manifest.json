@@ -2,6 +2,7 @@
   "name": "Travel Request",
   "description": "Generate gmail according to template",
   "version": "0.1",
+  "icons": { "128": "Plane.png" },
   "permissions": ["https://mail.google.com/a/thoughtworks.com/*","contextMenus"],
   "background_page": "background.html",
   "content_scripts": [
